@@ -43,7 +43,7 @@ class PinCodeTextField extends StatefulWidget {
   final Duration blinkDuration;
 
   /// returns the current typed text in the fields
-  final ValueChanged<String> onChanged;
+  final ValueChanged<String>? onChanged;
 
   /// returns the typed text when all pins are set
   final ValueChanged<String>? onCompleted;
@@ -462,7 +462,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
 
           if (widget.autoDismissKeyboard) _focusNode!.unfocus();
         }
-        widget.onChanged(currentText);
+        widget.onChanged?.call(currentText);
       }
 
       _setTextToInput(currentText);
